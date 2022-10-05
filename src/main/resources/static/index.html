@@ -1,2 +1,19 @@
-fdg
-適当な文字列
+<!DOCTYPE html>
+<html>
+<style>
+  input {
+    margin-bottom: 5px;
+  }
+</style>
+
+<form action="/janken" method="post">
+  <label><input type="text" /><input type="button" id="doLogin" value="入室" /></label>
+</form>
+
+<script>
+  document.getElementById("doLogin").onclick = function () {
+    location.href = 'janken.html';
+  }
+</script>
+
+</html>
