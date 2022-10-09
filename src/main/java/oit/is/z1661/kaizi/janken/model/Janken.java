@@ -6,7 +6,6 @@ public class Janken {
   ArrayList<Double> numList = new ArrayList<>();
   double ave;
 
-  // コンストラクタ
   public Janken(ArrayList<Double> numList) {
     this.numList = numList;
     double sum = 0;
