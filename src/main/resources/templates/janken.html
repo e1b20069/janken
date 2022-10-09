@@ -3,7 +3,9 @@
 
 <body>
   <h1>Janken GAME!</h1>
-  <p>Hi<span th:text="${name}">????</span> </span></p>
+  <p>Hi
+    <div th:text="${name}">[[${name}]]</div>
+  </p>
 
 </body>
 
