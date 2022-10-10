@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
-<h1>Janken GAME!</h1>
-<div th:if="${nameResult}">
-  Hi [[${nameResult}]]
-</div>
+
+<body>
+  <h1>Janken GAME!</h1>
+  <p> Hi
+  <div th:if="${name}">
+    [[${name}]]
+  </div>
+  </p>
+  <p><a href="/jankengame?hand=Gu">ぐー</a> <a href="/jankengame?hand=Tyoki">ちょき</a> <a href="/jankengame?hand=Pa">ぱー</a>
+  </p>
+
+</body>
 
 </html>
