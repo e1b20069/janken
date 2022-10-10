@@ -11,4 +11,8 @@ public class Janken {
   public String getname() {
     return name;
   }
+
+  public void setname(String na) {
+    this.name = na;
+  }
 }
