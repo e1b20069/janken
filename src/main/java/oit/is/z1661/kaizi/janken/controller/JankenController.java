@@ -24,7 +24,9 @@ public class JankenController {
   @GetMapping("/jankengame?hand=Gu")
   public String jankengame() {
 
-
+    System.out.println("あなたの手 Gu");
+    System.out.println("相手の手 Gu");
+    System.out.println("draw");
     return "janken.html";
   }
 }
