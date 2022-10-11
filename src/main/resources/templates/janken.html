@@ -3,13 +3,24 @@
 
 <body>
   <h1>Janken GAME!</h1>
-  <p> Hi
-  <div th:if="${name}">
-    [[${name}]]
+  <div th:if="${Name}">
+    Hi [[${Name}]]
   </div>
-  </p>
-  <p><a href="/jankengame?hand=Gu">ぐー</a> <a href="/jankengame?hand=Tyoki">ちょき</a> <a href="/jankengame?hand=Pa">ぱー</a>
-  </p>
+  <div>
+    <a href="/jankengame?hand=Gu">ぐー</a>
+    <a href="/jankengame?hand=Tyoki">ちょき</a>
+    <a href="/jankengame?hand=Pa">ぱー</a>
+  </div>
+
+  <div th:if="${userhand}">
+    あなたの手 [[${userhand}]]
+  </div>
+  <div th:if="${cpuhand}">
+    相手の手 [[${cpuhand}]]
+  </div>
+  <div th:if="${kekka}">
+    結果 [[${kekka}]]
+  </div>
 
 </body>
 

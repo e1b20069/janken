@@ -6,27 +6,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import oit.is.z1661.kaizi.janken.model.Janken;
+
 @Controller
 public class JankenController {
 
-  /**
-   * @param name
-   * @param model
-   * @return
-   */
-  @PostMapping("/janken")
-  public String janken(@RequestParam String name, ModelMap model) {
-
-    model.addAttribute("nameResult", name);
+  @GetMapping("/janken")
+  public String janken(){
     return "janken.html";
   }
 
-  @GetMapping("/jankengame?hand=Gu")
-  public String jankengame() {
+  @PostMapping("/janken")
+  public String janken(@RequestParam String name, ModelMap model) {
 
-    System.out.println("あなたの手 Gu");
-    System.out.println("相手の手 Gu");
-    System.out.println("draw");
+    model.addAttribute("Name", name);
+    return "janken.html";
+  }
+
+  @GetMapping("/jankengame")
+  public String lec02(@RequestParam String hand, ModelMap model) {
+    String userhand = hand;
+    String cpuhand = "Gu";
+    Janken janken = new Janken(userhand, cpuhand);
+    model.addAttribute("userhand", userhand);
+    model.addAttribute("cpuhand", janken.getCpuHand());
+    model.addAttribute("kekka", janken.getKekka());
+
     return "janken.html";
   }
 }
