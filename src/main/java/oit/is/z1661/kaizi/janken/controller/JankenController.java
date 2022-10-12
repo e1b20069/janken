@@ -1,5 +1,6 @@
 package oit.is.z1661.kaizi.janken.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import oit.is.z1661.kaizi.janken.model.Janken;
 public class JankenController {
 
   @GetMapping("/janken")
-  public String janken(){
+  public String janken() {
     return "janken.html";
   }
 
@@ -22,6 +23,7 @@ public class JankenController {
     model.addAttribute("Name", name);
     return "janken.html";
   }
+
 
   @GetMapping("/jankengame")
   public String lec02(@RequestParam String hand, ModelMap model) {

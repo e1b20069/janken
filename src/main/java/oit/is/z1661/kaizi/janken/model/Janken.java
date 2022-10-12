@@ -31,7 +31,4 @@ public class Janken {
     return this.kekka;
   }
 
-  public void setname(String na) {
-    this.name = na;
-  }
 }
