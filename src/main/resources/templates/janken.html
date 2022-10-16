@@ -2,7 +2,15 @@
 <html>
 
 <body>
+  <div><a href="/logout">ログアウト</a></div>
   <h1>Janken GAME!</h1>
+  <div th:if="${room}">
+    エントリー
+    <ul>
+      <li th:each="user : ${room.users}">[[${user}]]</li>
+    </ul>
+  </div>
+
   <div th:if="${Name}">
     Hi [[${Name}]]
   </div>
