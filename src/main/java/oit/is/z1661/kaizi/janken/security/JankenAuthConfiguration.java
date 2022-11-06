@@ -31,8 +31,13 @@ public class JankenAuthConfiguration {
         .password("$2y$10$/TOf0aFl4W56lgzyzBbwNONW8pj5Xn8BGg1rnSgiw/Emn5btkIGc.")
         .roles("USER")
         .build();
+    UserDetails user3 = users
+        .username("ほんだ")
+        .password("$2y$10$KcmRP32PuPJ.rWuoeBY83.im5yErFQTwjVDF8iCQsU9v7McgTNXoe")
+        .roles("USER")
+        .build();
 
-    return new InMemoryUserDetailsManager(user1, user2);
+    return new InMemoryUserDetailsManager(user1, user2, user3);
   }
 
   /**
@@ -47,6 +52,9 @@ public class JankenAuthConfiguration {
         .mvcMatchers("/janken/**").authenticated();
 
     http.logout().logoutSuccessUrl("/");
+
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
     return http.build();
   }
 
