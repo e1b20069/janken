@@ -11,9 +11,9 @@
   </div>
 
   <div>
-    <a th:href="@{/fight(id=${loginuser.id}, hand=Gu)}">ぐー</a>
-    <a th:href="@{/fight(id=${loginuser.id}, hand=Tyoki)}">ちょき</a>
-    <a th:href="@{/fight(id=${loginuser.id}, hand=Pa)}">ぱー</a>
+    <a th:href="@{/wait(id=${eUser.id}, hand=Gu)}">ぐー</a>
+    <a th:href="@{/wait(id=${eUser.id}, hand=Choki)}">ちょき</a>
+    <a th:href="@{/wait(id=${eUser.id}, hand=Pa)}">ぱー</a>
   </div>
 
   <div th:if="${userhand}">

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import oit.is.z1661.kaizi.janken.model.Janken;
 import oit.is.z1661.kaizi.janken.model.Match;
+import oit.is.z1661.kaizi.janken.model.MatchInfo;
+import oit.is.z1661.kaizi.janken.model.MatchInfoMapper;
 import oit.is.z1661.kaizi.janken.model.User;
 import oit.is.z1661.kaizi.janken.model.UserMapper;
 import oit.is.z1661.kaizi.janken.model.MatchMapper;
@@ -26,14 +28,19 @@ public class JankenController {
   @Autowired
   MatchMapper matchMapper;
 
+  @Autowired
+  MatchInfoMapper matchinfoMapper;
+
   @GetMapping("/janken")
   public String janken(ModelMap model, Principal prin) {
     String name = prin.getName();
     ArrayList<User> users = userMapper.selectAllUser();
     ArrayList<Match> matches = matchMapper.selectAllMatch();
+    ArrayList<MatchInfo> Activematches = matchinfoMapper.selectActiveMatch();
     model.addAttribute("Name", name);
     model.addAttribute("users", users);
     model.addAttribute("matches", matches);
+    model.addAttribute("Activematches", Activematches);
 
     return "janken.html";
   }
@@ -88,5 +95,18 @@ public class JankenController {
     matchMapper.insertMatch(insertMatch);
 
     return "match.html";
+  }
+
+  @GetMapping("/wait")
+  public String wait(@RequestParam Integer id, @RequestParam String hand, ModelMap model, Principal prin) {
+    String name = prin.getName();
+    User loginuser = userMapper.selectByname(name);
+    String userhand = hand;
+
+    MatchInfo insertMatchinfo = new MatchInfo(loginuser.getId(), id, userhand);
+    matchinfoMapper.insertMatchinfo(insertMatchinfo);
+    model.addAttribute("Name", loginuser.getUserName());
+
+    return "wait.html";
   }
 }

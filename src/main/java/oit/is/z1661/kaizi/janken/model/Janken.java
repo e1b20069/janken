@@ -12,10 +12,10 @@ public class Janken {
   }
 
   public void makegame(String hand, String cpuhand) {
-    if ((hand.equals("Gu") && cpuhand.equals("Gu")) || (hand.equals("Tyoki") && cpuhand.equals("Tyoki"))
+    if ((hand.equals("Gu") && cpuhand.equals("Gu")) || (hand.equals("Choki") && cpuhand.equals("Choki"))
         || (hand.equals("Pa") && cpuhand.equals("Pa"))) {
       this.kekka = "Draw";
-    } else if ((hand.equals("Gu") && cpuhand.equals("Tyoki")) || (hand.equals("Tyoki") && cpuhand.equals("Pa"))
+    } else if ((hand.equals("Gu") && cpuhand.equals("Choki")) || (hand.equals("Choki") && cpuhand.equals("Pa"))
         || (hand.equals("Pa") && cpuhand.equals("Gu"))) {
       this.kekka = "You Win!";
     } else {
