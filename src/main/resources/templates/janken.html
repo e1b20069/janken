@@ -14,21 +14,17 @@
   </ul>
   </p>
 
-  <div>
-    <a href="/jankengame?hand=Gu">ぐー</a>
-    <a href="/jankengame?hand=Tyoki">ちょき</a>
-    <a href="/jankengame?hand=Pa">ぱー</a>
+  <h2>アクティブな試合</h2>
+  <p th:if="${Activematches}">
+  <div th:each="Activematch,stat:${Activematches}">
+    <tr>
+      <td>id:[[${Activematch.id}]]</td>
+      <td>user1:[[${Activematch.user1}]]</td>
+      <td>user2:[[${Activematch.user2}]]</td>
+      <td>isActive:[[${Activematch.isActive}]]</td>
+    </tr>
   </div>
-
-  <div th:if="${userhand}">
-    あなたの手 [[${userhand}]]
-  </div>
-  <div th:if="${cpuhand}">
-    相手の手 [[${cpuhand}]]
-  </div>
-  <div th:if="${kekka}">
-    結果 [[${kekka}]]
-  </div>
+  </p>
 
   <h2>試合結果</h2>
   <p th:if="${matches}">
